@@ -5,7 +5,7 @@ import { counterReducer } from "./pages/counter/reducer.js";
 import { Provider } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 
-import App from "./pages/counter/Counter.jsx";
+import CounterPage from "./pages/counter/CounterPage.jsx";
 
 const rootReducer = combineReducers({
   counter: counterReducer
@@ -16,7 +16,7 @@ const store = createStore(rootReducer, undefined, composeWithDevTools());
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
         <Provider store={store}>
-            <App />
+            <CounterPage />
         </Provider>
     </React.StrictMode>
 );

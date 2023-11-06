@@ -1,4 +1,4 @@
-import { COUNTER_DECREMENT, COUNTER_INCREMENT } from "./constants";
+import { COUNTER_DECREMENT, COUNTER_INCREMENT, COUNTER_RESET } from "./constants";
 
 export const increment = () => {
     return {
@@ -11,3 +11,9 @@ export const decrement = () => {
         type: COUNTER_DECREMENT,
     };
 };
+
+export const reset = () => {
+    return {
+        type: COUNTER_RESET
+    }
+}
