@@ -19,7 +19,7 @@ export async function client(endpoint, { body, ...customConfig } = {}) {
         if (response.ok) return data;
         throw new Error(response.statusText);
     } catch (err) {
-        return Promise.reject(err.message ? err.message : '');
+        return Promise.reject(err.message ? err.message : data);
     }
 
     client.get = function (endpoint, customConfig = {}) {
