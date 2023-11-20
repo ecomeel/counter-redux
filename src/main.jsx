@@ -4,8 +4,9 @@ import { createStore, combineReducers } from "redux";
 import { counterReducer } from "./pages/counter/reducer.js";
 import { Provider } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-
 import CounterPage from "./pages/counter/CounterPage.jsx";
+
+import './api/server.js'
 
 const rootReducer = combineReducers({
   counter: counterReducer
