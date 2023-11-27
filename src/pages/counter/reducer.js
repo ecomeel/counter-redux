@@ -1,4 +1,4 @@
-import { COUNTER_DECREMENT, COUNTER_INCREMENT } from "./constants";
+import { COUNTER_DECREMENT, COUNTER_INCREMENT, COUNTER_RESET } from "./constants";
 
 const initialState = {
     value: 0,
@@ -16,6 +16,11 @@ export function counterReducer(state = initialState, action) {
                 ...state,
                 value: state.value - 1,
             };
+        case COUNTER_RESET:
+            return {
+                ...state,
+                value: initialState.value
+            }
         default:
             return {
                 ...state,
