@@ -1,6 +1,6 @@
 import { createServer } from "miragejs";
 
-const initialCounter = 10;
+const initialCounter = 20;
 
 createServer({
   routes() {

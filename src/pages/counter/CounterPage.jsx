@@ -1,12 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
-import { getCounterSelector } from "./selectors";
-import { increment, decrement, reset } from "./actions";
-import {CounterWidget} from "../../components/CounterWidget/CounterWidget";
+import { getCounterSelector, getIsLoadingSelector } from "./selectors";
+import { increment, decrement, reset, load } from "./actions";
+import { CounterWidget } from "../../components/CounterWidget/CounterWidget";
 
 export default function CounterPage() {
     const counter = useSelector(getCounterSelector);
+    const isLoading = useSelector(getIsLoadingSelector);
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(load())
+    }, []);
 
     function handleDecrementButton() {
         dispatch(decrement());
@@ -15,17 +21,18 @@ export default function CounterPage() {
     function handleIncrementButton() {
         dispatch(increment());
     }
-    function hadnleResetButton() {
-        dispatch(reset())
+    function handleResetButton() {
+        dispatch(reset());
     }
 
     return (
         <div>
             <CounterWidget
                 counter={counter}
+                isLoading={isLoading}
                 onIncrementBtnClick={handleIncrementButton}
                 onDecrementBtnClick={handleDecrementButton}
-                onResetBtnClick={hadnleResetButton}
+                onResetBtnClick={handleResetButton}
             />
         </div>
     );

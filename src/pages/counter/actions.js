@@ -22,7 +22,7 @@ export const load = () => {
                     payload: data.counter,
                 });
             })
-            .catch((error) => {
+            .catch(() => {
                 dispatch({
                     type: COUNTER_LOADING_ERROR,
                 });

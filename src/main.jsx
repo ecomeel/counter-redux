@@ -23,7 +23,9 @@ const store = createStore(
 const root = document.getElementById("root");
 
 ReactDOM.createRoot(root).render(
-    <Provider store={store}>
-        <CounterPage />
-    </Provider>
+    <React.StrictMode>
+        <Provider store={store}>
+            <CounterPage />
+        </Provider>
+    </React.StrictMode>
 );
