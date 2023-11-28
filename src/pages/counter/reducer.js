@@ -8,7 +8,7 @@ import {
 } from "./constants";
 
 const initialState = {
-    value: 0,
+    value: null,
     isLoading: false,
     isError: false,
 };
@@ -46,7 +46,7 @@ export function counterReducer(state = initialState, action) {
         case COUNTER_LOADING_ERROR:
             return {
                 ...state,
-                isLoading: true,
+                isLoading: false,
                 isError: true,
             };
         default:
