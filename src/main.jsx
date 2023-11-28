@@ -8,7 +8,7 @@ import thunkMiddleware from "redux-thunk";
 import CounterPage from "./pages/counter/CounterPage.jsx";
 import { counterReducer } from "./pages/counter/reducer.js";
 
-import "./api/server.js";
+import "./api/mock-server.js";
 
 const rootReducer = combineReducers({
     counter: counterReducer,
