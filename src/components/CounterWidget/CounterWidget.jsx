@@ -2,9 +2,14 @@ export function CounterWidget({
     counter,
     isLoading,
     isError,
+    isSaveSuccess,
+    isSaveLoading,
+    isSaveError,
     onIncrementBtnClick,
     onDecrementBtnClick,
     onResetBtnClick,
+    onRetryBtnClick,
+    onSaveBtnClick
 }) {
     if (isLoading) {
         return (
@@ -17,6 +22,7 @@ export function CounterWidget({
         return (
             <div>
                 <p>Error loading</p>
+                <button onClick={onRetryBtnClick}>Повторить загрузку</button>
             </div>
         )
     }
@@ -32,6 +38,12 @@ export function CounterWidget({
             <button onClick={onResetBtnClick}>
                 reset
             </button>
+            <button disabled={isSaveLoading} onClick={onSaveBtnClick}>
+                save
+            </button>
+            {isSaveLoading && <p>Saving counter</p>}
+            {isSaveError && <p>Error save</p>}
+            {isSaveSuccess && <p>Success save</p>}
         </div>
     );
 }
